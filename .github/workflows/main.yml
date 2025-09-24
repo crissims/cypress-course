@@ -1,17 +1,17 @@
 name: Cypress.io Tests
 
-on: 
-  push:
-    branches:
-      -main 
+on:
+  issues:
+    types: [opened]
+
 jobs:
-  Explore-GitHub-Actions:
+  summary:
     runs-on: ubuntu-latest
-    container:
-      image: node:22
+    permissions:
+      issues: write
+      models: read
+      contents: read
+
     steps:
-      - run: npm ci
-      - run: npm test
-      - run: npm run build
-    
-    
+      - name: Checkout repository
+        uses: actions/checkout@v4
