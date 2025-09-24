@@ -1,0 +1,17 @@
+name: Cypress.io Tests
+
+on: 
+  pull_request:
+    branches:
+      -main 
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    container:
+      image: node:22
+    steps:
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+    
+    
